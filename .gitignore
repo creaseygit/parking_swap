@@ -1,0 +1,34 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Elastic Beanstalk files
+.elasticbeanstalk/*
+
+# Exclude specific configuration files if they contain sensitive information
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.ebextensions/ssl-single-instance.config
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Nginx configurations if sensitive
+.platform/nginx/*.conf
+
+# AWS CLI and credential files
+.aws/

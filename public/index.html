@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al Zeina Car Park Space Swap</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .step {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #4cae4c;
+      }
+      #matchResult {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #dff0d8;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Al Zeina Car Park Space Swap</h1>
+      <p>
+        Welcome to the Al Zeina Car Park Space Swap app. This app helps you swap
+        parking spaces with other users. You can register your current parking
+        details and the space you want, and the app will look for a match. If a
+        match is found, both parties can confirm the swap. If no match is
+        available, you can check back later. You can also delete your request at
+        any time.
+      </p>
+  
+      <div id="app">
+        <div id="phoneEntry" class="step active">
+          <h2>Enter Your Phone Number</h2>
+          <input type="tel" id="phoneNumber" placeholder="Phone Number" />
+          <button onclick="checkPhoneNumber()">Enter</button>
+        </div>
+
+      <div id="existingRequest" class="step">
+        <h2>Existing Request</h2>
+        <div id="requestDetails"></div>
+        <button id="deleteRequestBtn" onclick="deleteRequest()">
+          Delete Request
+        </button>
+      </div>
+
+      <div id="newRequest" class="step">
+        <h2>New Swap Request</h2>
+        <form id="swapRequestForm">
+          <input type="hidden" id="formPhoneNumber" />
+          <label for="currentBlock">Current parking space block</label>
+          <select id="currentBlock" required>
+            <option value="">Select Block</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option></select
+          ><br />
+          <label for="spaceNumber1">Space Number 1:</label>
+          <input type="number" id="spaceNumber1" required /><br />
+          <label for="spaceNumber2">Space Number 2:</label>
+          <input type="number" id="spaceNumber2" required /><br />
+          <label for="desiredBlock">Desired Block:</label>
+          <select id="desiredBlock" required>
+            <option value="">Select Block</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option></select
+          ><br />
+          <button type="submit">Submit Request</button>
+        </form>
+      </div>
+
+      <div id="matchResult" class="step">
+        <h2>Match Result</h2>
+        <div id="matchDetails"></div>
+        <button
+          id="confirmSwapBtn"
+          onclick="confirmSwap()"
+          style="display: none"
+        >
+          Confirm Swap
+        </button>
+      </div>
+    </div>
+
+    <script src="client.js"></script>
+  </body>
+</html>
